@@ -1,9 +1,10 @@
 {
   "name": "co-lang",
-  "version": "1.0.0",
-  "description": "The core of Condition Language",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "CoLang core",
+  "main": "dist",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,13 +12,19 @@
     "url": "git+https://github.com/tilvlur/co-lang.git"
   },
   "keywords": [
-    "antlr4",
-    "condition-language"
+    "antlr4"
   ],
   "author": "Timur Khrustalyov <tilvlur@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tilvlur/co-lang/issues"
   },
-  "homepage": "https://github.com/tilvlur/co-lang#readme"
+  "homepage": "https://github.com/tilvlur/co-lang#readme",
+  "dependencies": {
+    "antlr4": "~4.11.0"
+  },
+  "devDependencies": {
+    "@types/antlr4": "~4.11.1",
+    "fast-deep-equal": "~3.1.3"
+  }
 }
