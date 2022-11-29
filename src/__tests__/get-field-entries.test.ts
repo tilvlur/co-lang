@@ -1,7 +1,7 @@
 // @ts-ignore
 import { CoLang } from '../../dist'
 
-describe('Test .getFieldEntries method of Condition language', () => {
+describe('Test .getFieldEntries method', () => {
   const conditionLanguage = new CoLang();
 
   describe('Test ValueExpr', () => {
@@ -233,28 +233,28 @@ describe('Test .getFieldEntries method of Condition language', () => {
     });
   });
 
-  // describe('Test of the number of entries', () => {
-  //   test('One entry', () => {
-  //     const entries = conditionLanguage.getFieldEntries({
-  //       condition: '$IF >=65 $FROM AgeInYears $THEN',
-  //     });
-  //
-  //     expect(entries?.size).toBe(1);
-  //     expect(entries?.has('AgeInYears')).toBeTruthy();
-  //   });
-  //
-  //   test.skip('Two entries', () => {
-  //     const entries = conditionLanguage.getFieldEntries({
-  //       condition: '$IF <=165 $FROM Height $THEN $AND $IF >=100 $FROM Weight $THEN',
-  //     });
-  //
-  //     expect(entries?.size).toBe(2);
-  //     expect(entries?.has('Height')).toBeTruthy();
-  //     expect(entries?.has('Weight')).toBeTruthy();
-  //     expect([...entries!][0]).toBe('Height');
-  //     expect([...entries!][1]).toBe('Weight');
-  //   });
-  // });
+  describe('Test of the number of entries', () => {
+    test('One entry', () => {
+      const entries = conditionLanguage.getFieldEntries({
+        condition: '$IF >=65 $FROM AgeInYears $THEN',
+      });
+
+      expect(entries?.size).toBe(1);
+      expect(entries?.has('AgeInYears')).toBeTruthy();
+    });
+
+    test('Two entries', () => {
+      const entries = conditionLanguage.getFieldEntries({
+        condition: '$IF <=165 $FROM Height $THEN $AND $IF >=100 $FROM Weight $THEN',
+      });
+
+      expect(entries?.size).toBe(2);
+      expect(entries?.has('Height')).toBeTruthy();
+      expect(entries?.has('Weight')).toBeTruthy();
+      expect([...entries!][0]).toBe('Height');
+      expect([...entries!][1]).toBe('Weight');
+    });
+  });
 
   describe('Test erroneous trigger', () => {
     test('Returns null', () => {

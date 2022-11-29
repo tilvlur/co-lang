@@ -18,13 +18,15 @@ const config = [
         file: 'dist/index.min.js',
         format: 'esm',
         plugins: [terser()],
-      }
+      },
     ],
     plugins: [
       resolve({
         moduleDirectories: ['node_modules'],
       }),
-      typescript({ tsconfig: 'tsconfig.json' }),
+      typescript({
+        exclude: ['**/__tests__', '**/*.test.ts'],
+      }),
     ],
     external: ['antlr4', 'fast-deep-equal'],
   },
